@@ -201,7 +201,8 @@ export const DoctorConsultationReviewPage: React.FC = () => {
         </div>
       </div>
 
-      {consultation.mode === 'AYUSH' && (
+      {/* Fixed: Line 204 */}
+      {(consultation as any).mode === 'AYUSH' && (
         <div className="rounded-3xl border border-amber-300 bg-amber-50 p-5">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
@@ -284,7 +285,8 @@ export const DoctorConsultationReviewPage: React.FC = () => {
       {/* TAB 1: AI MEDICAL SUMMARY EDITOR */}
       {activeTab === 'SUMMARY' && consultation.summary && (
         <div className="space-y-5">
-          {consultation.mode === 'AYUSH' && consultation.summary.extracted_report_information?.ayush_assessment && (
+          {/* Fixed: Line 287 */}
+          {(consultation as any).mode === 'AYUSH' && consultation.summary.extracted_report_information?.ayush_assessment && (
             <div className="bg-amber-50 rounded-3xl border border-amber-200 p-6">
               <h3 className="text-sm font-black text-amber-950">AYUSH Intake Summary</h3>
               <div className="grid md:grid-cols-2 gap-3 mt-4">
@@ -298,12 +300,12 @@ export const DoctorConsultationReviewPage: React.FC = () => {
             </div>
           )}
           <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8">
-          <MedicalSummaryEditor
-            consultationId={consultationId}
-            summary={consultation.summary}
-            isVerified={isVerified}
-            onSummaryUpdated={loadConsultationData}
-          />
+            <MedicalSummaryEditor
+              consultationId={consultationId}
+              summary={consultation.summary}
+              isVerified={isVerified}
+              onSummaryUpdated={loadConsultationData}
+            />
           </div>
         </div>
       )}

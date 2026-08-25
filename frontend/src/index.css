@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gov-navy: #17365d;
+  --gov-navy-dark: #102a43;
+  --gov-green: #0b6b3a;
+  --gov-green-dark: #07512c;
+  --gov-green-soft: #eaf5ef;
+  --gov-saffron: #e87519;
+  --gov-saffron-soft: #fff3e8;
+  --gov-border: #d7dee7;
+  --gov-muted: #52606d;
+  --gov-bg: #f4f6f8;
+}
+
+@layer base {
+  html { background: var(--gov-bg); }
+  body {
+    @apply antialiased;
+    margin: 0;
+    background: var(--gov-bg);
+    color: var(--gov-navy-dark);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  * { box-sizing: border-box; }
+  ::selection { background: var(--gov-green); color: #fff; }
+}
+
+/* Indian public-service portal inspired visual language:
+   restrained corners, flat colors, strong navy/green hierarchy, saffron accent. */
+.bg-slate-50 { background-color: var(--gov-bg) !important; }
+.bg-slate-100 { background-color: #eef1f4 !important; }
+.bg-white { background-color: #fff !important; }
+.bg-slate-900 { background-color: var(--gov-navy-dark) !important; }
+.bg-slate-800 { background-color: #1f3b57 !important; }
+
+.text-slate-900 { color: var(--gov-navy-dark) !important; }
+.text-slate-800 { color: #243b53 !important; }
+.text-slate-700 { color: #334e68 !important; }
+.text-slate-600 { color: #486581 !important; }
+.text-slate-500 { color: var(--gov-muted) !important; }
+.text-slate-400 { color: #6b7c8f !important; }
+
+.bg-teal-600, .bg-teal-500 { background-color: var(--gov-green) !important; }
+.bg-teal-700 { background-color: var(--gov-green-dark) !important; }
+.bg-teal-50, .bg-teal-50\/40, .bg-teal-50\/50, .bg-teal-50\/70 { background-color: var(--gov-green-soft) !important; }
+.bg-teal-100 { background-color: #d9eee2 !important; }
+.bg-teal-200 { background-color: #c2e2d0 !important; }
+.text-teal-600, .text-teal-700, .text-teal-800, .text-teal-900 { color: var(--gov-green) !important; }
+.text-teal-100 { color: #dff2e7 !important; }
+.border-teal-100 { border-color: #cfe7da !important; }
+.border-teal-200, .border-teal-300, .border-teal-400, .border-teal-500 { border-color: #9bc9ad !important; }
+.ring-teal-500, .ring-teal-500\/20 { --tw-ring-color: rgba(11,107,58,.20) !important; }
+
+.bg-emerald-50, .bg-emerald-100 { background-color: var(--gov-green-soft) !important; }
+.text-emerald-600, .text-emerald-700, .text-emerald-800 { color: var(--gov-green) !important; }
+.border-emerald-200 { border-color: #b8dac6 !important; }
+
+.bg-amber-50, .bg-amber-100 { background-color: var(--gov-saffron-soft) !important; }
+.text-amber-500, .text-amber-600, .text-amber-700, .text-amber-800, .text-amber-900 { color: var(--gov-saffron) !important; }
+.border-amber-200, .border-amber-300 { border-color: #efc29f !important; }
+
+.border-slate-100 { border-color: #e3e8ee !important; }
+.border-slate-200, .border-slate-200\/80, .border-slate-300 { border-color: var(--gov-border) !important; }
+
+/* Flatten the more app-like pill styling into a formal portal aesthetic. */
+.rounded-3xl { border-radius: 10px !important; }
+.rounded-2xl { border-radius: 8px !important; }
+.rounded-xl { border-radius: 6px !important; }
+.rounded-lg { border-radius: 5px !important; }
+.rounded-full { border-radius: 9999px !important; }
+
+/* Replace the landing-page teal gradient with a restrained government palette. */
+.bg-gradient-to-b { background-image: linear-gradient(to bottom, #eef7f1, #ffffff 48%, var(--gov-bg)) !important; }
+.bg-gradient-to-tr { background-image: linear-gradient(to top right, var(--gov-green), #198754) !important; }
+.bg-gradient-to-r { background-image: linear-gradient(to right, var(--gov-green), #16824b) !important; }
+
+/* Common interactive states */
+.hover\\:bg-teal-700:hover { background-color: var(--gov-green-dark) !important; }
+.hover\\:bg-teal-100:hover { background-color: #d9eee2 !important; }
+.hover\\:bg-teal-50:hover { background-color: var(--gov-green-soft) !important; }
+.hover\\:text-teal-600:hover { color: var(--gov-green) !important; }
+
+/* Formal inputs and controls */
+input, select, textarea {
+  border-color: var(--gov-border) !important;
+  border-radius: 5px !important;
+  background: #fff;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gov-green) !important;
+  box-shadow: 0 0 0 2px rgba(11,107,58,.12) !important;
+  outline: none;
+}
+button { font-family: inherit; }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: #e9edf1; }
+::-webkit-scrollbar-thumb { background: #a9b5c2; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #7d8c9c; }
+
+/* Audio wave animation */
+@keyframes wave-bar {
+  0%, 100% { height: 6px; }
+  50% { height: 24px; }
+}
+.animate-wave-1 { animation: wave-bar 0.8s ease-in-out infinite 0.1s; }
+.animate-wave-2 { animation: wave-bar 0.8s ease-in-out infinite 0.25s; }
+.animate-wave-3 { animation: wave-bar 0.8s ease-in-out infinite 0.4s; }
+.animate-wave-4 { animation: wave-bar 0.8s ease-in-out infinite 0.2s; }
+
+/* Small utility bar used by the portal header. */
+.gov-top-strip {
+  height: 4px;
+  background: linear-gradient(90deg, var(--gov-saffron) 0 33.33%, #ffffff 33.33% 66.66%, var(--gov-green) 66.66% 100%);
+  border-bottom: 1px solid #d7dce2;
+}
+.gov-utility-bar {
+  background: var(--gov-navy);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: .01em;
+}
+.gov-utility-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5px 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+.gov-utility-inner span:last-child { opacity: .9; }
+.gov-section-rule { border-top: 3px solid var(--gov-saffron); }

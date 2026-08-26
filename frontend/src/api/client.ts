@@ -1,4 +1,8 @@
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  (window.location.hostname === 'localhost'
+    ? 'http://localhost:8000/api'
+    : 'https://medikiosk-5nyv.onrender.com/api');
 
 export class ApiError extends Error {
   status: number;

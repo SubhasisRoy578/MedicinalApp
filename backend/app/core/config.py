@@ -16,14 +16,13 @@ class Settings(BaseSettings):
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./medikiosk.db")
 
     # CORS
-    BACKEND_CORS_ORIGINS: List[str] = [
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:3000",
-        "http://localhost:8000",
-        "*"
-    ]
-
+    # CORS
+BACKEND_CORS_ORIGINS: List[str] = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "https://medikiosk-1-wqhg.onrender.com",
+]
     # File uploads
     UPLOAD_DIR: str = os.getenv("UPLOAD_DIR", "./uploads")
     MAX_FILE_SIZE_MB: int = 15

@@ -188,3 +188,5 @@ MediKiosk is strictly designed around medical AI safety principles:
 ## 📄 9. License
 
 This project is developed for clinical intake acceleration and healthcare workflow optimization under the MIT License.
+
+backend url https://medicinalapp.onrender.com/
